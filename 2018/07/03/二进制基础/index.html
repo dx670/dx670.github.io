@@ -94,13 +94,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="寄存器、缓存、内存、硬盘的相关知识，以及栈和栈帧平衡，对swap函数用F10调试，用栈分析其过程">
+<meta name="keywords" content="SWAP函数，二进制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二进制基础">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/二进制基础/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="寄存器、缓存、内存、硬盘的相关知识，以及栈和栈帧平衡，对swap函数用F10调试，用栈分析其过程">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/UW9B43c.jpg">
+<meta property="og:image" content="https://i.imgur.com/CDtOCtR.png">
+<meta property="og:image" content="https://i.imgur.com/jzzsrA2.png">
+<meta property="og:image" content="https://i.imgur.com/JUuWNXc.png">
+<meta property="og:image" content="https://i.imgur.com/aYiuc7L.png">
+<meta property="og:updated_time" content="2018-07-07T05:49:03.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="二进制基础">
+<meta name="twitter:description" content="寄存器、缓存、内存、硬盘的相关知识，以及栈和栈帧平衡，对swap函数用F10调试，用栈分析其过程">
+<meta name="twitter:image" content="https://i.imgur.com/UW9B43c.jpg">
 
 
 
@@ -108,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/03/二进制基础/">
 
 
 
@@ -118,7 +129,7 @@
   };
 </script>
 
-  <title>Archiv | Hexo</title>
+  <title>二进制基础 | Hexo</title>
   
 
 
@@ -166,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -312,98 +323,207 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Öhm..! Insgesamt 21 Artikel. Bleib dran.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/二进制基础/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/03/22/html中的#及点击1000000问题/" itemprop="url">
-            
-              <span itemprop="name">html中的#及点击1000000问题</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">二进制基础
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-22T23:45:14+08:00" content="2019-03-22">
-          03-22
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2018-07-03 15:51:52" itemprop="dateCreated datePublished" datetime="2018-07-03T15:51:52+08:00">2018-07-03</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2018-07-07 13:49:03" itemprop="dateModified" datetime="2018-07-07T13:49:03+08:00">2018-07-07</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>寄存器、缓存、内存、硬盘的相关知识，以及栈和栈帧平衡，对swap函数用F10调试，用栈分析其过程</p>
+<a id="more"></a>
+
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>直接整合到CPU中的有限的<strong>高速</strong>访问速度的存储器，但是<strong>容量有限</strong>，所以一般只存储一些指令和使用频繁的数据，加快直接同内存读取指令和读写数据的速度。</p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>数据交换的缓冲区（称作Cache），当某一硬件要读取数据时，会首先从缓存中查找需要的数据，如果找到了则直接执行，找不到的话则从内存中找。由于缓存的运行速度比内存快得多，故缓存的作用就是帮助硬件更快地运行。</p>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>与CPU进行沟通的桥梁，计算机中所有程序的运行都是在内存中进行的，因此内存的性能对计算机的影响非常大。内存(Memory)也被称为内存储器，其作用是用于<strong>暂时存放</strong>CPU中的运算数据，以及与硬盘等外部存储器交换的数据。只要计算机在运行中，CPU就会把需要运算的数据调到内存中进行运算，当运算完成后CPU再将结果传送出来，内存的运行也决定了计算机的稳定运行。 内存是由内存芯片、电路板、金手指等部分组成的。</p>
+<h2 id="硬盘"><a href="#硬盘" class="headerlink" title="硬盘"></a>硬盘</h2><p>用来存储需要<strong>永久存储</strong>的文件。<br><br><br>CPU访问速度从快到慢排序为：<br><br>寄存器-&gt;缓存-&gt;内存-&gt;硬盘</p>
+<h2 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h2><p>参照汇编语言</p>
+<h2 id="小端序"><a href="#小端序" class="headerlink" title="小端序"></a>小端序</h2><p>高位字节存储在高位，低位字节存储在低位<br><br>数据在内存中一般以16进制储存，一个字节可以储存8个二进制位，一个16进制可以表示4个二进制位，所以一个字节可以存储2个16进制位，a在十六进制中表示十进制中的10，0-f均表示一个16进制位。<br><br>例如：① Char [4] “pwn”<br>Ascii ‘p’=70 ‘w’=77 ‘n’=6e(已经是16进制数了)<br><br>一个字节存储一个字符，所以不需要用到小端序，其在内存中的存储为：70、77、6e、00，00为\0的16进制数。<br><br>② int  0x1234 一个整型的可以存4个字节，此时需要对其进行排序，小端序排序，未排序之前是12，34；排序后高字节12排在高位置上，即右边，所以排序后，其存储形式应为：34，12。</p>
+<h2 id="栈和SWAP"><a href="#栈和SWAP" class="headerlink" title="栈和SWAP"></a>栈和SWAP</h2><p>一、栈的特点：<br>1、先进后出<br><br>2、地址从高位到低位延伸，先进的在高地址，push栈的底部会下降，pop底部会上升<br><br><img src="https://i.imgur.com/UW9B43c.jpg" alt><br><br>这里上下两幅图都是可以表示栈的，由于栈的特性，我们只需要记住，<strong>栈底的地址较高</strong>，栈顶的地址较低即可<br><br><img src="https://i.imgur.com/CDtOCtR.png" alt><br><br>二、栈的作用：<br>1、暂时保存变量   //寄存器个数有限，运行函数需要寄存器，用栈保存省寄存器<br><br>2、调用函数时传递参数（与接下来的SWAP连接在一起）<br><br>3、保存函数返回地址  //调用函数，函数结束返回你调用的位置之后，利用了栈的先进后出的特点，即先调用的后返回<br><br>三、SWAP<br><br>a、b指要交换的两个数，aa为a的地址，bb为b的地址，*aa=a，    *bb=b<br><br>1、可以被交换<br><br><img src="https://i.imgur.com/jzzsrA2.png" alt><br><br>分析过程：<br><br><img src="https://i.imgur.com/JUuWNXc.png" alt><br>SWAP函数将aa地址对应的值与bb地址对应的值交换，结果为：<br><br><img src="https://i.imgur.com/aYiuc7L.png" alt><br><br>主函数中a,b得值被交换，刚开始一直很迷，因为一直在用a,b进行入栈分析操作，所以觉得没变，事实上，a,b指示变量的名称。</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/SWAP函数，二进制/" rel="tag"># SWAP函数，二进制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/03/OD/" rel="next" title="OD">
+                <i class="fa fa-chevron-left"></i> OD
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/04/有关SQL绕过和盲注/" rel="prev" title="有关SQL绕过和盲注">
+                有关SQL绕过和盲注 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -423,8 +543,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -524,6 +653,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器"><span class="nav-number">1.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存"><span class="nav-number">3.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘"><span class="nav-number">4.</span> <span class="nav-text">硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器寻址"><span class="nav-number">5.</span> <span class="nav-text">寄存器寻址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小端序"><span class="nav-number">6.</span> <span class="nav-text">小端序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈和SWAP"><span class="nav-number">7.</span> <span class="nav-text">栈和SWAP</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -666,6 +812,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -681,6 +831,8 @@
 
   
 
+
+  
 
 
   

@@ -94,13 +94,44 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="emmmm，每天都能知道很多新东西呀，今天主要讲了栈帧平衡（stack frame）、缓冲区溢出（buffer overflow),还讲了一道据说非常简单的PWN：通过一个程序，利用上次和今天讲的，控制程序所在运行的电脑。">
+<meta name="keywords" content="栈、PWN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最简单的一道PWN">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/最简单的一道PWN/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="emmmm，每天都能知道很多新东西呀，今天主要讲了栈帧平衡（stack frame）、缓冲区溢出（buffer overflow),还讲了一道据说非常简单的PWN：通过一个程序，利用上次和今天讲的，控制程序所在运行的电脑。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/6MJvrgF.png">
+<meta property="og:image" content="https://i.imgur.com/XFwVAxC.png">
+<meta property="og:image" content="https://i.imgur.com/SUhMqv9.png">
+<meta property="og:image" content="https://i.imgur.com/zUrIffm.png">
+<meta property="og:image" content="https://i.imgur.com/4PhyZjw.png">
+<meta property="og:image" content="https://i.imgur.com/56sF2hb.jpg">
+<meta property="og:image" content="https://i.imgur.com/ty8Izyb.png">
+<meta property="og:image" content="https://i.imgur.com/HWOGMOR.jpg">
+<meta property="og:image" content="https://i.imgur.com/pFx2AtA.png">
+<meta property="og:image" content="https://i.imgur.com/AmgrKCL.png">
+<meta property="og:image" content="https://i.imgur.com/985VdxE.jpg">
+<meta property="og:image" content="https://i.imgur.com/7LEBmwV.jpg">
+<meta property="og:image" content="https://i.imgur.com/sEJDw9a.jpg">
+<meta property="og:image" content="https://i.imgur.com/fnUnul8.jpg">
+<meta property="og:image" content="https://i.imgur.com/C45FUzz.png">
+<meta property="og:image" content="https://i.imgur.com/TqQl5R9.jpg">
+<meta property="og:image" content="https://i.imgur.com/BWHsG49.png">
+<meta property="og:image" content="https://i.imgur.com/mFaPUiC.png">
+<meta property="og:image" content="https://i.imgur.com/w6upXYU.png">
+<meta property="og:image" content="https://i.imgur.com/DVy7L6I.png">
+<meta property="og:image" content="https://i.imgur.com/cRPkWHz.png">
+<meta property="og:image" content="https://i.imgur.com/jxXV31A.png">
+<meta property="og:image" content="https://i.imgur.com/Sc7aC39.jpg">
+<meta property="og:image" content="https://i.imgur.com/MGf9P0p.jpg">
+<meta property="og:image" content="https://i.imgur.com/mieyPxv.png">
+<meta property="og:updated_time" content="2018-07-07T16:13:34.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="最简单的一道PWN">
+<meta name="twitter:description" content="emmmm，每天都能知道很多新东西呀，今天主要讲了栈帧平衡（stack frame）、缓冲区溢出（buffer overflow),还讲了一道据说非常简单的PWN：通过一个程序，利用上次和今天讲的，控制程序所在运行的电脑。">
+<meta name="twitter:image" content="https://i.imgur.com/6MJvrgF.png">
 
 
 
@@ -108,7 +139,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/07/最简单的一道PWN/">
 
 
 
@@ -118,7 +149,7 @@
   };
 </script>
 
-  <title>Archiv | Hexo</title>
+  <title>最简单的一道PWN | Hexo</title>
   
 
 
@@ -166,7 +197,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -312,98 +343,242 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Öhm..! Insgesamt 21 Artikel. Bleib dran.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/最简单的一道PWN/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/03/22/html中的#及点击1000000问题/" itemprop="url">
-            
-              <span itemprop="name">html中的#及点击1000000问题</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">最简单的一道PWN
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-22T23:45:14+08:00" content="2019-03-22">
-          03-22
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
 
+          
+          
+          
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2018-07-07 13:37:33" itemprop="dateCreated datePublished" datetime="2018-07-07T13:37:33+08:00">2018-07-07</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2018-07-08 00:13:34" itemprop="dateModified" datetime="2018-07-08T00:13:34+08:00">2018-07-08</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>emmmm，每天都能知道很多新东西呀，今天主要讲了栈帧平衡（stack frame）、缓冲区溢出（buffer overflow),还讲了一道据说非常简单的PWN：通过一个程序，利用上次和今天讲的，控制程序所在运行的电脑。</p>
+<a id="more"></a>
+<h2 id="栈帧平衡"><a href="#栈帧平衡" class="headerlink" title="栈帧平衡"></a>栈帧平衡</h2><p>栈帧平衡： 调用函数前后栈的结构不变<br><br>要保证调用函数前后栈的结构不变，在开始时我们就应该记住栈的底部位置和顶部位置，方法：<br><br>EBP指向栈底，ESP指向栈顶<br><br>push EBP（将栈底地址保存在栈中,储存栈顶位置加上位置，此时栈顶为EBP的值）<br><br>MOVE EBP ESP（将栈顶赋给栈底，此时栈顶指针和栈底指针都指向栈顶，后来进栈的，栈顶指针移动）<br><br>上述操作进行结束，我们就可以进行我们所想进行的操作，进行操作过后，我们把EBP赋给ESP，此时两个指针指向原来栈的栈顶，POP函数的用法是POP出栈顶的值，POP EBP的意思是pop出栈顶的值赋给EBP。<br><br>总的来说，流程如下：<br><img src="https://i.imgur.com/6MJvrgF.png" alt><br><br><img src="https://i.imgur.com/XFwVAxC.png" alt><br><br><img src="https://i.imgur.com/SUhMqv9.png" alt><br><br><img src="https://i.imgur.com/zUrIffm.png" alt></p>
+<h2 id="函数调用与返回"><a href="#函数调用与返回" class="headerlink" title="函数调用与返回"></a>函数调用与返回</h2><p>函数调用：首先存我们返回地址（函数调用结束后返回的地址），然后jump到函数的位置<br><br>返回：pop出我们存的返回地址，然后jump</p>
+<h2 id="缓冲区溢出"><a href="#缓冲区溢出" class="headerlink" title="缓冲区溢出"></a>缓冲区溢出</h2><p>一个数组是用栈保存的，我们调用函数会把返回地址储存在栈中，我们输入值的时候，地址会从小到大，会先占用地址较小的地址，这时候我们如果不规定输入字符的数量，就有可能会覆盖掉我们存储的返回位置（retaddr:return address）,函数结束后会返回到一个莫名其妙的位置。<br><br><img src="https://i.imgur.com/4PhyZjw.png" alt><br><br><img src="https://i.imgur.com/56sF2hb.jpg" alt></p>
+<h2 id="gdb命令"><a href="#gdb命令" class="headerlink" title="gdb命令"></a>gdb命令</h2><p><br>GDB（GNU Debugger）是在lunix以及lunix系统下的调试工具。功能极其强大，几乎涵盖了你所需要的全部功能。<br>GDB主要帮忙你完成下面四个方面的功能：<br>1.启动你的程序，可以按照你的定制要求随心所欲的运行程序。<br>2.可让被调试的程序在你所指定的调置的断点处停住。<br>3.当程序被停住时，可以检查此时你的程序中所发生的事，以及内存状态等。<br>4.动态的改变你程序的执行环境。<br><br><br>gdb使用总旨：help指令很强大！多用help！help里面总会有你需要的信息。如果你不知道如何使用help，请在gdb里面输入：help all<br><br><br>首先写一下今天要用到的一些命令：<br><br>objdump -d 文件名：遍历程序，可以看到所有的汇编代码，保存之后可以寻找我们所想找的东西<br><br>gdb 文件名：进入文件<br><br>start：开始运行程序<br><br>ni：逐步运行<br><br>si：进入函数<br><br>pattc n：随机生成有规律的n个字符<br><br>patto 要查找的东西：查找</p>
+<p><br>然后是其他的一些命令：<br><br>f：显示格式<br>               hex(hex) 按十六进制格式显示变量。<br>               d(decimal) 按十进制格式显示变量。<br>               u(unsigned decimal) 按十进制格式显示无符号整型。<br>               o(octal) 按八进制格式显示变量。<br>               t(binary) 按二进制格式显示变量。<br>               a(address) 按十六进制格式显示变量。<br>               c(char) 按字符格式显示变量。<br>               f(float) 按浮点数格式显示变量<br><br></p>
+<ul>
+<li>gcc -g  main.c                      //在目标文件加入源代码的信息</li>
+<li>gdb a.out        </li>
+<li>(gdb) start                         //开始调试</li>
+<li>(gdb) n                             //一条一条执行</li>
+<li>(gdb) step/s                        //执行下一条，如果函数进入函数</li>
+<li>(gdb) backtrace/bt                  //查看函数调用栈帧</li>
+<li>(gdb) info/i locals                 //查看当前栈帧局部变量</li>
+<li>(gdb) frame/f                       //选择栈帧，再查看局部变量</li>
+<li>(gdb) print/p                       //打印变量的值</li>
+<li>(gdb) finish                        //运行到当前函数返回</li>
+<li>(gdb) set var sum=0                 //修改变量值</li>
+<li>(gdb) list/l 行号或函数名             //列出源码</li>
+<li>(gdb) display/undisplay sum         //每次停下显示变量的值/取消跟踪</li>
+<li>(gdb) break/b  行号或函数名           //设置断点</li>
+<li>(gdb) continue/c                    //连续运行</li>
+<li>(gdb) info/i breakpoints            //查看已经设置的断点</li>
+<li>(gdb) delete breakpoints 2          //删除某个断点</li>
+<li>(gdb) disable/enable breakpoints 3  //禁用/启用某个断点</li>
+<li>(gdb) break 9 if sum != 0           //满足条件才激活断点</li>
+<li>(gdb) run/r                         //重新从程序开头连续执行</li>
+<li>(gdb) watch input[4]                //设置观察点</li>
+<li>(gdb) info/i watchpoints            //查看设置的观察点</li>
+<li>(gdb) x/7b input                    //打印存储器内容，b–每个字节一组，7–7组</li>
+<li>(gdb) disassemble                   //反汇编当前函数或指定函数</li>
+<li>(gdb) si                            // 一条指令一条指令调试 而 s 是一行一行代码</li>
+<li>(gdb) info registers                // 显示所有寄存器的当前值</li>
+<li>(gdb) x/20 $esp                    //查看内存中开始的20个数</li>
+</ul>
+<h2 id="python-pwntools-基本操作"><a href="#python-pwntools-基本操作" class="headerlink" title="python pwntools 基本操作"></a>python pwntools 基本操作</h2><p>PwnTools的官网如下：<a href="http://pwntools.com/" target="_blank" rel="noopener">http://pwntools.com/</a><br><br><a href="https://www.cnblogs.com/Ox9A82/p/5728149.html" target="_blank" rel="noopener">https://www.cnblogs.com/Ox9A82/p/5728149.html</a></p>
+<ul>
+<li>from pwn import *表示导入pwn库</li>
+<li>context(arch = ‘i386’, os = ‘linux’)用来导入pwntools库</li>
+<li>r = remote(‘exploitme.example.com’, 31337)设置目标机信息，用来建立一个远程连接，url或者ip作为地址，然后指明端口</li>
+<li>r = process(“./test”)使用本地文件</li>
+</ul>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>一：<br>下面是源代码：<br><br><img src="https://i.imgur.com/ty8Izyb.png" alt><br>从源代码可以看出如果想进入cmd函数执行shell，由于主函数只调用了A这个函数，所以我们可以把A的返回地址给覆盖为cmd函数的地址，就可以进入cmd调用它了。<br><br>首先输入objdump -d p1浏览它的汇编代码，<br><br><img src="https://i.imgur.com/HWOGMOR.jpg" alt><br><br>我们可以看到cmd的地址为0804846b，但是一个指针四个字节，他是以小端序的方式存的，所以他在内存中存储形式为：6b 84 04 08<br><br>然后进入文件p1<br><br><img src="https://i.imgur.com/pFx2AtA.png" alt><br><br>start<br><br><img src="https://i.imgur.com/AmgrKCL.png" alt><br><br>在下图中我们可以看到此时函数运行在A<br><br><img src="https://i.imgur.com/985VdxE.jpg" alt><br><br>si进入函数<br><br><img src="https://i.imgur.com/7LEBmwV.jpg" alt><br><br>ni单步运行，直至找到scanf<br><br><img src="https://i.imgur.com/sEJDw9a.jpg" alt><br><br>pattc 200生成200个随机字符，输入函数之前必须输入个c(contiue)<br><br><img src="https://i.imgur.com/fnUnul8.jpg" alt><br><br>将生成的随机字符复制粘贴，回车，可以看到有以下错误提示<br><br><img src="https://i.imgur.com/C45FUzz.png" alt><br><br>利用patto找到offset，为112<br><br><img src="https://i.imgur.com/TqQl5R9.jpg" alt><br><br>然后利用pythontools，连接，输入以下东西，就是将字符串传递给我们的程序<br><br><img src="https://i.imgur.com/BWHsG49.png" alt><br><br><br><br>第二种方法：return 滑行，之前一直不懂，emmm，现在懂了，就是任意一个return地址复制个很多次填充rutaddr之前的东西，要保证我们输入的字符串要覆盖掉return address，所以要输入的足够多，然后在最后加上cmd的地址。过程：到A函数返回的地方，返回了一个返回地址，相当于又执行了一遍return函数，然后一直return，直至返回cmd，执行shell.<br><br>前面找地址的步骤是一样的：<br><br>找到一个return地址：<br><br><img src="https://i.imgur.com/mFaPUiC.png" alt><br><br>然后在pythontools中改一下字符串：<br><br><img src="https://i.imgur.com/w6upXYU.png" alt><br>OK啦</p>
+<p><br>二、源码如下：<br><br><img src="https://i.imgur.com/DVy7L6I.png" alt><br>进入文件<br><br><img src="https://i.imgur.com/cRPkWHz.png" alt><br><br>start<br><br><img src="https://i.imgur.com/jxXV31A.png" alt><br><br>根据源码能看出magic的地址与rand函数有关，可以看到调用rand函数之后将它产生的值赋给了magic，所以0xffffcf08-0x1c即为magic的地址<br><br><img src="https://i.imgur.com/Sc7aC39.jpg" alt><br><br>buff数组用gets函数赋值，调用函数需传给它一个参数，即数组的首地址，这时候我们把两个变量的地址都找到了，可以看到两个地址之间差了100，magic整型变量，四个字节，只要保证buf的前四个与100到104的数相等即可<br><br><img src="https://i.imgur.com/MGf9P0p.jpg" alt><br>利用pythontools交互得到shell<br><br><img src="https://i.imgur.com/mieyPxv.png" alt></p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/栈、PWN/" rel="tag"># 栈、PWN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/06/文件上传漏洞/" rel="next" title="文件上传漏洞">
+                <i class="fa fa-chevron-left"></i> 文件上传漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/08/XSS/" rel="prev" title="XSS">
+                XSS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -423,8 +598,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -524,6 +708,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈帧平衡"><span class="nav-number">1.</span> <span class="nav-text">栈帧平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数调用与返回"><span class="nav-number">2.</span> <span class="nav-text">函数调用与返回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓冲区溢出"><span class="nav-number">3.</span> <span class="nav-text">缓冲区溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gdb命令"><span class="nav-number">4.</span> <span class="nav-text">gdb命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-pwntools-基本操作"><span class="nav-number">5.</span> <span class="nav-text">python pwntools 基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例题"><span class="nav-number">6.</span> <span class="nav-text">例题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -666,6 +867,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -681,6 +886,8 @@
 
   
 
+
+  
 
 
   
